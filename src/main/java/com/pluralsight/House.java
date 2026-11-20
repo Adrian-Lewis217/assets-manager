@@ -52,6 +52,36 @@ public class House extends Asset{
     }
     @Override
     public BigDecimal getValue(){
-        return cost;
+        BigDecimal value = BigDecimal.ZERO;
+
+        switch (condition) {
+            case 1:
+                value = new BigDecimal("180.00").multiply(BigDecimal.valueOf(squareFoot));
+                break;
+            case 2:
+                value = new BigDecimal("130.00").multiply(BigDecimal.valueOf(squareFoot));
+                break;
+            case 3:
+                value = new BigDecimal("90.00").multiply(BigDecimal.valueOf(squareFoot));
+                break;
+            case 4:
+                value = new BigDecimal("80.00").multiply(BigDecimal.valueOf(squareFoot));
+                break;
+        }
+        // My first attempt
+        /*BigDecimal updatedCost = null;
+        if (condition == 1){
+            updatedCost = BigDecimal.valueOf(((180.00 * squareFoot) + (.25 * squareFoot)));
+        }
+        else if (condition == 2){
+            updatedCost = BigDecimal.valueOf(((130.00 * squareFoot) + (.25 * squareFoot)));
+        }
+        else if (condition == 3){
+            updatedCost = BigDecimal.valueOf(((90.00 * squareFoot) + (.25 * squareFoot)));
+        }
+        else if (condition == 4){
+            updatedCost = BigDecimal.valueOf(((80.00 * squareFoot) + (.25 * squareFoot)));
+        }*/
+        return value;
     }
 }
